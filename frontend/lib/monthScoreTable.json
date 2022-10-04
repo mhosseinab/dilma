@@ -1,0 +1,7 @@
+[
+  { "id": "point", "label": "رتبه" },
+  { "id": "worker", "label": "ترنج کار" },
+  { "id": "doned-worker", "label": "پروژەهای تحویل شده" },
+  { "id": "words", "label": "کلمات ترنج شده" },
+  { "id": "score", "label": "امتیاز اجرا" }
+]

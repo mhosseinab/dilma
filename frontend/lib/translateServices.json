@@ -1,0 +1,17 @@
+[
+  { "title": "پادکست", "icon": "/img/translate/services/Vector-5.svg" },
+  { "title": "بازنویسی متن", "icon": "/img/translate/services/Vector-4.svg" },
+  { "title": "ایمیل", "icon": "/img/translate/services/Vector-3.svg" },
+  {
+    "title": "شبکه های اجتماعی",
+    "icon": "/img/translate/services/Vector-2.svg"
+  },
+  {
+    "title": "ترجمه محتوای ویدیویی",
+    "icon": "/img/translate/services/Vector-1.svg"
+  },
+  {
+    "title": "ترجمه محتوای متنی",
+    "icon": "/img/translate/services/Vector.svg"
+  }
+]

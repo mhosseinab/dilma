@@ -1,0 +1,2 @@
+https://python.plainenglish.io/django-rest-framework-jwt-auth-with-login-and-register-77f830cd8789
+https://python.plainenglish.io/role-based-authentication-and-authorization-with-djangorestframework-and-simplejwt-d9614d79995c

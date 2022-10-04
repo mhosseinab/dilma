@@ -1,0 +1,11 @@
+[
+  { "title": "ترجمه به شیلی", "icon": "/img/translate/flags/CL.png" },
+  { "title": "ترجمه به کلمبیایی", "icon": "/img/translate/flags/CM.png" },
+  { "title": "ترجمه به چینی", "icon": "/img/translate/flags/CN.png" },
+  { "title": "ترجمه به چکی", "icon": "/img/translate/flags/CZ.png" },
+  { "title": "ترجمه به المانی", "icon": "/img/translate/flags/DE.png" },
+  { "title": "ترجمه به تبتی", "icon": "/img/translate/flags/DJ.png" },
+  { "title": "ترجمه به اردو", "icon": "/img/translate/flags/ER.png" },
+  { "title": "ترجمه به اسپانیایی", "icon": "/img/translate/flags/ES.png" },
+  { "title": "ترجمه به عربی", "icon": "/img/translate/flags/EH.png" }
+]

@@ -1,0 +1,10 @@
+[
+  { "name": "تحویل بخش به بخش", "icon": "/img/landing/homeSvg/transfer.svg" },
+  { "name": "تست ترجمه", "icon": "/img/landing/homeSvg/safe.svg" },
+  { "name": "قیمت منصفانه!", "icon": "/img/landing/homeSvg/price.svg" },
+  { "name": "خروجی حرفه‌ای!", "icon": "/img/landing/homeSvg/export.svg" },
+  { "name": " انتخاب مترجم ", "icon": "/img/landing/homeSvg/translator.svg" },
+  { "name": "مطمئن و سریع!", "icon": "/img/landing/homeSvg/quick.svg" },
+  { "name": "امتیاز دهی به مترجم", "icon": "/img/landing/homeSvg/rating.svg" },
+  { "name": "گواهی تایید ترجمه", "icon": "/img/landing/homeSvg/licencs.svg" }
+]

@@ -1,0 +1,17 @@
+[
+  { "id": "code", "label": "کد" },
+  { "id": "name", "label": "نام ترنج کار" },
+  { "id": "projects", "label": "کل پروژەها" },
+  { "id": "force", "label": "تعداد فوری" },
+  { "id": "avrageforce", "label": "فوری منفی" },
+  { "id": "negativeforce", "label": "متوسط زمان فوری" },
+  { "id": "oneday", "label": "تعداد 1 روزه" },
+  { "id": "negativeoneday", "label": "1 روزه منفی" },
+  { "id": "regularCount", "label": "متوسط زمان 1روزه" },
+  { "id": "negativeRegular", "label": "تعداد محصول" },
+  { "id": "negativeavrage", "label": "معمولی منفی" },
+  { "id": "avrageTime", "label": "متوسط زمان معمولی" },
+  { "id": "allNegativeCount", "label": "تعداد کل منفی" },
+  { "id": "mostNegativeCount", "label": "بیشترین زمان منفی" },
+  { "id": "score", "label": "جمع امتیاز" }
+]

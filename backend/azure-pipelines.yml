@@ -1,0 +1,42 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- master
+
+resources:
+- repo: self
+
+variables:
+  imageRepository: 'dilmaa-api'
+  containerRegistry: 'go7-registry'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  dockerComposeFilePath: '$(Build.SourcesDirectory)/docker-compose.yml'
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: SSH@0
+      displayName: SSH commands for deployment
+      inputs:
+        sshEndpoint: 'hetzner-dev-ssh'
+        runOptions: 'inline'
+        inline: |
+          HOME=/root
+          PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin
+          echo $PATH
+          echo $HOME
+          id
+          cd /srv/src/dilma-api/
+          pwd
+          git pull origin master && docker-compose build && docker-compose up -d
+        readyTimeout: '60000'
+

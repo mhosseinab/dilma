@@ -1,0 +1,5 @@
+[
+  { "title": "تحویل معمولی", "time": "5 تا 7 روز", "price": 10000 , "price_rate" : 1 , "id" : "Normal"},
+  { "title": "تحویل سریع", "time": "3 تا 5 روز", "price": 10000 , "price_rate" : 1.25 , "id" : "Fast"},
+  { "title": "تحویل ویژه", "time": "1 تا 2 روز", "price": 10000 , "price_rate" : 1.5 , "id" : "Urgent"}
+]

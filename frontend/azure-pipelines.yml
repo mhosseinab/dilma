@@ -1,0 +1,55 @@
+# Docker
+# Build a Docker image
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  imageRepository: 'dilmaa-ui'
+  containerRegistry: 'go7-registry'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: Docker@2
+      displayName: Login to container registry
+      inputs:
+        command: login
+        containerRegistry: $(containerRegistry)
+    - task: Docker@2
+      displayName: Build an image
+      inputs:
+        command: buildAndPush
+        dockerfile: $(dockerfilePath)
+        repository: $(imageRepository)
+        containerRegistry: $(containerRegistry)
+        tags: |
+          $(tag)
+          latest
+    - task: Docker@2
+      displayName: Logout from container registry
+      inputs:
+        command: logout
+        containerRegistry: $(containerRegistry)
+    - task: SSH@0
+      displayName: SSH commands for deployment
+      inputs:
+        sshEndpoint: 'hetzner-dev-ssh'
+        runOptions: 'inline'
+        inline: |
+          docker pull docker-registry.go7.ir/$(imageRepository):latest
+          docker stop $(imageRepository) || true && docker rm $(imageRepository) || true
+          docker run -d -p 127.0.0.1:3001:3000 --restart=always --name $(imageRepository) docker-registry.go7.ir/$(imageRepository):latest
+        readyTimeout: '20000'

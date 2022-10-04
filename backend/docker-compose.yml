@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  web:
+    container_name: dilmaa-django
+    build: ./
+    restart: always
+    command: gunicorn -c gunicorn.ini.py dilma.wsgi:application
+    ports:
+      - 127.0.0.1:8801:8000
+    volumes:
+      - ./static:/usr/src/app/static
+      - ./media:/usr/src/app/media
+    links:
+      - db:db
+    env_file:
+      - ./.env.prod
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/admin/login/"]
+      interval: 10s
+      timeout: 1s
+      retries: 10
+    depends_on:
+      - db
+  db:
+    container_name: dilmaa-db
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/
+    env_file:
+      - ./.env.prod
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -q -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 1s
+      retries: 30
+
+

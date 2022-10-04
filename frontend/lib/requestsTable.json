@@ -1,0 +1,50 @@
+
+  [
+    { "id": "number", "label": "شماره" },
+    { "id": "reqDate", "label": "تاریخ درخواست" },
+    {
+      "id": "type",
+      "label": "کلاس"
+    },
+    {
+      "id": "paperCounter",
+      "label": "تعداد صفحه"
+    },
+    {
+      "id": "wordsLength",
+      "label": "تعداد کلمات"
+    },
+    {
+      "id": "quality",
+      "label": "کیفیت"
+    },
+    {
+      "id": "price",
+      "label": "درآمد ترجمه"
+    },
+    {
+      "id": "timing",
+      "label": "فوریت"
+    },
+    {
+      "id": "endLevel",
+      "label": "مهلت این مرحله"
+    },
+    {
+      "id": "status",
+      "label": "وضعیت"
+    },
+    {
+      "id": "by",
+      "label": "توسط"
+    },
+    {
+      "id": "initialCode",
+      "label": "کد اصلی"
+    },
+    {
+      "id": "works",
+      "label": "اقدامات"
+    }
+  ]
+  
