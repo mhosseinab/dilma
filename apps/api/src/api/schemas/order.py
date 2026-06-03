@@ -1,7 +1,7 @@
-from typing import Any
+from typing import Any, ClassVar
 from uuid import UUID
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 from .auth import UserOut
 
@@ -13,7 +13,7 @@ class LanguageOut(BaseModel):
     is_source: bool
     is_destination: bool
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class DocTypeOut(BaseModel):
@@ -27,7 +27,7 @@ class DocTypeOut(BaseModel):
     stamp_moj_price: int
     stamp_mfa_price: int
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class DocCategoryOut(BaseModel):
@@ -36,7 +36,7 @@ class DocCategoryOut(BaseModel):
     priority: int
     items: list[int]  # list of DocType PKs (PrimaryKeyRelatedField equivalent)
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class UploadOut(BaseModel):
@@ -44,7 +44,7 @@ class UploadOut(BaseModel):
     file: str
     ext_id: UUID
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class OrderItemOut(BaseModel):
@@ -57,7 +57,7 @@ class OrderItemOut(BaseModel):
     status: str  # label, not int
     count: int
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class OrderOut(BaseModel):
@@ -70,7 +70,7 @@ class OrderOut(BaseModel):
     delivery_option: str  # label
     items: list[OrderItemOut]
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class OrderItemCreate(BaseModel):
@@ -117,7 +117,7 @@ class InvoiceOut(BaseModel):
     gateway: int
     status: int
 
-    model_config = {"from_attributes": True}
+    model_config: ClassVar[ConfigDict] = ConfigDict(from_attributes=True)
 
 
 class InvoiceCreate(BaseModel):

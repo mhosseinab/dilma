@@ -39,7 +39,9 @@ router = APIRouter()
 PAGE_SIZE = 24
 
 
-def _paginate(items: list, total: int, page: int, base_url: str = "") -> dict:
+def _paginate(
+    items: list[OrderOut], total: int, page: int, base_url: str = ""
+) -> dict[str, object]:
     has_next = (page * PAGE_SIZE) < total
     has_prev = page > 1
     return {

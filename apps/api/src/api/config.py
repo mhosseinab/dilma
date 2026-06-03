@@ -1,5 +1,7 @@
 from datetime import timedelta
-from pydantic_settings import BaseSettings
+from typing import ClassVar
+
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
@@ -13,7 +15,9 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_LIFETIME: timedelta = timedelta(days=5)
     REFRESH_TOKEN_LIFETIME: timedelta = timedelta(days=14)
 
-    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config: ClassVar[SettingsConfigDict] = SettingsConfigDict(
+        env_file=".env", env_file_encoding="utf-8"
+    )
 
 
 settings = Settings()

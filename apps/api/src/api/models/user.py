@@ -1,5 +1,6 @@
 import string
 from datetime import datetime, timedelta, timezone
+from typing import ClassVar
 from uuid import UUID, uuid4
 
 from sqlalchemy import (
@@ -24,7 +25,7 @@ def _random_digits(length: int = 5) -> str:
 
 
 class User(Base, TimestampMixin):
-    __tablename__ = "account_user"
+    __tablename__: str = "account_user"
 
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
     password: Mapped[str] = mapped_column(String(128))
@@ -44,9 +45,9 @@ class User(Base, TimestampMixin):
         DateTime(timezone=True), default=lambda: datetime.now(timezone.utc)
     )
 
-    ADMIN = 1
-    MANAGER = 2
-    CUSTOMER = 3
+    ADMIN: ClassVar[int] = 1
+    MANAGER: ClassVar[int] = 2
+    CUSTOMER: ClassVar[int] = 3
 
     auth_token: Mapped["AuthToken | None"] = relationship(
         "AuthToken", back_populates="user", uselist=False
@@ -54,10 +55,10 @@ class User(Base, TimestampMixin):
 
 
 class AuthToken(Base):
-    __tablename__ = "account_authtoken"
+    __tablename__: str = "account_authtoken"
 
-    EXP_IN_MINUTES = 5
-    MAX_FAILED_ATTEMPTS = 5
+    EXP_IN_MINUTES: ClassVar[int] = 5
+    MAX_FAILED_ATTEMPTS: ClassVar[int] = 5
 
     uid: Mapped[UUID] = mapped_column(
         PG_UUID(as_uuid=True), primary_key=True, default=uuid4, index=True

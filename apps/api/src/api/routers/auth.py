@@ -40,19 +40,22 @@ async def get_sms_token(body: MobileAuthRequest, db: DbDep):
             detail={"success": False, "error": "Inactive User"},
         )
 
-    result = await db.execute(select(AuthToken).where(AuthToken.user_id == user.id))
-    auth = result.scalar_one_or_none()
+    auth_result = await db.execute(select(AuthToken).where(AuthToken.user_id == user.id))
+    auth = auth_result.scalar_one_or_none()
     created = auth is None
     if created:
         auth = AuthToken(user_id=user.id)
         db.add(auth)
         await db.flush()
 
+    assert auth is not None
     if created or auth.is_expired or not auth.token1:
         auth.token1 = AuthToken.generate_numeric_token(length=4)
         auth.failed_attempts = 0
         auth.updatedAt = datetime.now(timezone.utc)
-        success = send_auth_sms_token(user.mobile, auth.token1, "verify")
+        token = auth.token1
+        assert token is not None
+        success = send_auth_sms_token(user.mobile, token, "verify")
         if not success:
             raise HTTPException(
                 status_code=status.HTTP_424_FAILED_DEPENDENCY,
@@ -102,7 +105,7 @@ async def refresh_token(body: RefreshRequest, db: DbDep):
             status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid refresh token"
         )
 
-    user_id: int = payload["user_id"]
+    user_id: int = payload["user_id"]  # type: ignore[assignment]  # pyright: ignore[reportAssignmentType]
     result = await db.execute(select(User).where(User.id == user_id))
     user = result.scalar_one_or_none()
     if user is None or not user.is_active:

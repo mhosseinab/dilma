@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from uuid import uuid4
 
 import jwt
@@ -6,7 +6,7 @@ import jwt
 from ..config import settings
 
 
-def _make_payload(token_type: str, user_id: int, lifetime) -> dict:
+def _make_payload(token_type: str, user_id: int, lifetime: timedelta) -> dict[str, object]:
     now = datetime.now(timezone.utc)
     return {
         "token_type": token_type,
@@ -31,18 +31,18 @@ def create_token_pair(user_id: int) -> tuple[str, str]:
     return create_access_token(user_id), create_refresh_token(user_id)
 
 
-def decode_token(token: str) -> dict:
+def decode_token(token: str) -> dict[str, object]:
     return jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
 
 
-def decode_access_token(token: str) -> dict:
+def decode_access_token(token: str) -> dict[str, object]:
     payload = decode_token(token)
     if payload.get("token_type") != "access":
         raise jwt.InvalidTokenError("Not an access token")
     return payload
 
 
-def decode_refresh_token(token: str) -> dict:
+def decode_refresh_token(token: str) -> dict[str, object]:
     payload = decode_token(token)
     if payload.get("token_type") != "refresh":
         raise jwt.InvalidTokenError("Not a refresh token")
