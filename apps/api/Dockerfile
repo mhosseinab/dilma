@@ -30,6 +30,7 @@ COPY --from=builder /app/.venv /app/.venv
 COPY --from=builder /app/apps/api /app/apps/api
 
 ENV PATH="/app/.venv/bin:$PATH"
+ENV PYTHONPATH="/app/apps/api/src"
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
 

@@ -15,7 +15,7 @@ RUN pnpm run build
 FROM node:18-alpine AS runner
 WORKDIR /app
 
-RUN apk add --no-cache curl
+RUN apk add --no-cache curl && npm install -g pnpm
 
 ENV NODE_ENV production
 
