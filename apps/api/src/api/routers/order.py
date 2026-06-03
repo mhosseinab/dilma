@@ -153,7 +153,7 @@ async def list_orders(
 
 
 @router.get("/{pk}/", response_model=OrderOut)
-async def get_order(pk: int, db: DbDep, current_user: User | None = Depends(get_optional_user)):
+async def get_order(pk: int, db: DbDep, _current_user: User | None = Depends(get_optional_user)):
     result = await db.execute(
         select(Order)
         .where(Order.id == pk)
@@ -279,7 +279,7 @@ async def upload_file(
 
     async with aiofiles.open(abs_path, "wb") as f:
         content = await file.read()
-        await f.write(content)
+        _ = await f.write(content)
 
     upload = Upload(
         file=relative_path,

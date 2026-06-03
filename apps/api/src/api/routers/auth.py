@@ -118,7 +118,7 @@ async def refresh_token(body: RefreshRequest, db: DbDep):
 @router.get("/users/")
 async def list_users(
     db: DbDep,
-    _staff=Depends(require_staff),
+    _staff: User = Depends(require_staff),
     name: str | None = Query(None),
     o: str | None = Query(None),
     page: int = Query(1, ge=1),

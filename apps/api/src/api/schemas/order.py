@@ -1,4 +1,4 @@
-from typing import Any, ClassVar
+from typing import ClassVar
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict
@@ -104,7 +104,7 @@ class PaginatedResponse(BaseModel):
     count: int
     next: str | None
     previous: str | None
-    results: list[Any]
+    results: list[object]
 
 
 class UploadCreate(BaseModel):

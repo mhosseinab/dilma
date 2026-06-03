@@ -18,7 +18,7 @@ set_session_factory(_session_factory)
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(_app: FastAPI):
     yield
     await _engine.dispose()
 
@@ -46,10 +46,10 @@ def create_app() -> FastAPI:
     os.makedirs(settings.MEDIA_ROOT, exist_ok=True)
     app.mount("/media", StaticFiles(directory=settings.MEDIA_ROOT), name="media")
 
-    create_admin(app, _engine)
+    _ = create_admin(app, _engine)
 
     @app.get("/health")
-    async def health():
+    async def health():  # pyright: ignore[reportUnusedFunction]
         return {"status": "ok"}
 
     return app
