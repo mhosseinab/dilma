@@ -1,0 +1,21 @@
+[
+  {
+    "results": [
+      {"id" : "year" , "label" : "1400"},
+      {"id" : "month" , "label" : "4"},
+      {"id" : "all" , "label" : "1"},
+      {"id" : "force" , "label" : "0"},
+      {"id" : "negetive-force" , "label" : "0"},
+      {"id" : "middle-force" , "label" : "متوسط زمان منفی"},
+      {"id" : "1day" , "label" : "0"},
+      {"id" : "negative-1day" , "label" : "0"},
+      {"id" : "middle-1day" , "label" : "23:44:13"},
+      {"id" : "regulgar-count" , "label" : "5"},
+      {"id" : "negative-regular" , "label" : "6"},
+      {"id" : "middle-time" , "label" : "0"},
+      {"id" : "negative-count" , "label" : "3"},
+      {"id" : "most-time" , "label" : "0"},
+      {"id" : "all-time" , "label" : "567"}
+    ]
+  }
+]

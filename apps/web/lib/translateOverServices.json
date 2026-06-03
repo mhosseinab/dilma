@@ -1,0 +1,34 @@
+[
+  {
+    "name": "تحویل بخش به بخش",
+    "icon": "/img/translate/officialTranslate/services/transfer.svg"
+  },
+  {
+    "name": "تست ترجمه",
+    "icon": "/img/translate/officialTranslate/services/safe.svg"
+  },
+  {
+    "name": "قیمت منصفانه!",
+    "icon": "/img/translate/officialTranslate/services/price.svg"
+  },
+  {
+    "name": "خروجی حرفه‌ای!",
+    "icon": "/img/translate/officialTranslate/services/export.svg"
+  },
+  {
+    "name": " انتخاب مترجم ",
+    "icon": "/img/translate/officialTranslate/services/translator.svg"
+  },
+  {
+    "name": "مطمئن و سریع!",
+    "icon": "/img/translate/officialTranslate/services/quick.svg"
+  },
+  {
+    "name": "امتیاز دهی به مترجم",
+    "icon": "/img/translate/officialTranslate/services/rating.svg"
+  },
+  {
+    "name": "گواهی تایید ترجمه",
+    "icon": "/img/translate/officialTranslate/services/licencs.svg"
+  }
+]

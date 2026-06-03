@@ -1,0 +1,59 @@
+services:
+  db:
+    container_name: dilmaa-db
+    image: postgres:13-alpine
+    restart: always
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data/
+    env_file:
+      - ./apps/api/.env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -q -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 1s
+      retries: 30
+
+  api:
+    container_name: dilmaa-api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: always
+    command: >
+      gunicorn api.main:app
+      -k uvicorn.workers.UvicornWorker
+      -w 4
+      --bind 0.0.0.0:8000
+      --forwarded-allow-ips "*"
+    ports:
+      - "127.0.0.1:8801:8000"
+    volumes:
+      - ./apps/api/media:/usr/src/app/media
+    env_file:
+      - ./apps/api/.env
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 2s
+      retries: 10
+
+  web:
+    container_name: dilmaa-web
+    build:
+      context: apps/web
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=https://dilmaa-api.go7.ir
+    depends_on:
+      - api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
+      timeout: 2s
+      retries: 10

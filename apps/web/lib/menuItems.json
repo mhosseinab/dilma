@@ -1,0 +1,37 @@
+[
+  {
+    "title": "پروفایل",
+    "icon": "/img/icons/profile.svg",
+    "link": "profile"
+  },
+  {
+    "title": "پروژه ها",
+    "icon": "/img/icons/project.svg",
+    "link": "projects"
+  },
+  {
+    "title": "موارد مالی",
+    "icon": "/img/icons/cart.svg",
+    "link": "payments"
+  },
+  {
+    "title": "مرکز پیام ها",
+    "icon": "/img/icons/notification.svg",
+    "link": "notifications"
+  },
+  {
+    "title": "پشتیبانی",
+    "icon": "/img/icons/support.svg",
+    "link": "tickets"
+  },
+  {
+    "title": "واژگان",
+    "icon": "/img/icons/words.svg",
+    "link": "dictionary"
+  },
+  {
+    "title": "تنظیمات",
+    "icon": "/img/icons/setting.svg",
+    "link": "settings"
+  }
+]

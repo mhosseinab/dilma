@@ -1,0 +1,37 @@
+version: '3'
+
+includes:
+  py:
+    taskfile: ./Taskfile.py.yml
+  ts:
+    taskfile: ./Taskfile.ts.yml
+
+tasks:
+  doctor:
+    desc: Verify required tools are installed
+    cmds:
+      - command -v node  || (echo "node not found — https://nodejs.org"  && exit 1)
+      - command -v pnpm  || (echo "pnpm not found — npm install -g pnpm" && exit 1)
+      - command -v uv    || (echo "uv not found — https://docs.astral.sh/uv" && exit 1)
+      - command -v docker || (echo "docker not found" && exit 1)
+      - echo "All tools present"
+
+  setup:
+    desc: Bootstrap all dependencies
+    deps: [py:install, ts:install]
+
+  dev:
+    desc: Start all services via docker compose
+    cmd: docker compose up --build
+
+  lint:
+    desc: Lint all code (parallel)
+    deps: [py:lint, ts:lint]
+
+  test:
+    desc: Run all tests
+    deps: [py:test]
+
+  build:
+    desc: Build all containers
+    cmd: docker compose build

@@ -1,0 +1,37 @@
+[
+  {
+    "title": "ترجمه فیلم",
+    "link": "/translate/video",
+    "icon": "/img/movie-theater.png"
+  },
+  {
+    "title": "ترجمه محتوا",
+    "link": "/content",
+    "icon": "/img/blog.png"
+  },
+  {
+    "title": "ترجمه رسمی",
+    "link": "/translate",
+    "icon": "/img/translate.png"
+  },
+  {
+    "title": "ترجمه",
+    "link": "/",
+    "icon": "/img/translation.png"
+  },
+  {
+    "title": "برگزاری آزمون زبان",
+    "link": "/",
+    "icon": "/img/exam.png"
+  },
+  {
+    "title": "اعزام مترجم",
+    "link": "/",
+    "icon": "/img/translate1.png"
+  },
+  {
+    "title": "ترجمه و چاپ کتاب",
+    "link": "",
+    "icon": "/img/dictionary.png"
+  }
+]

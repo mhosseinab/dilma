@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  install:
+    desc: Install web dependencies via pnpm
+    dir: apps/web
+    cmd: pnpm install
+
+  dev:
+    desc: Run Next.js dev server
+    dir: apps/web
+    cmd: pnpm run dev
+
+  build:
+    desc: Build Next.js for production
+    dir: apps/web
+    cmd: pnpm run build
+
+  lint:
+    desc: Run ESLint
+    dir: apps/web
+    cmd: pnpm run lint

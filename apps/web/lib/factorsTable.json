@@ -1,0 +1,6 @@
+[
+  {"id" :"worker-code" , "label" :"کد ترنج کار" },
+  {"id" :"worker-name" , "label" :"نام ترنج کار" },
+  {"id" :"all-work" , "label" :"جمع عملکرد" },
+  {"id" :"money" , "label" :"مانده حساب" }
+]

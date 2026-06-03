@@ -1,0 +1,24 @@
+glob_matcher: doublestar
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: py-lint
+      glob: "**/*.py"
+      run: uv run ruff check {staged_files}
+      stage_fixed: true
+
+    - name: py-format
+      glob: "**/*.py"
+      run: uv run ruff format {staged_files}
+      stage_fixed: true
+
+    - name: ts-lint
+      glob: "**/*.{ts,tsx}"
+      run: cd apps/web && pnpm run lint
+
+pre-push:
+  jobs:
+    - name: py-typecheck
+      glob: "**/*.py"
+      run: uv run mypy apps/api/src/ --config-file pyproject.toml

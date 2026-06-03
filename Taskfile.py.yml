@@ -1,0 +1,40 @@
+version: '3'
+
+tasks:
+  install:
+    desc: Install API dependencies via uv
+    dir: apps/api
+    cmd: uv sync --group dev
+
+  dev:
+    desc: Run FastAPI in hot-reload mode
+    dir: apps/api
+    cmd: uv run uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+
+  lint:
+    desc: Lint and format check Python
+    cmd: uv run ruff check apps/api/src/ apps/api/tests/ && uv run ruff format --check apps/api/src/ apps/api/tests/
+
+  format:
+    desc: Auto-format Python
+    cmd: uv run ruff format apps/api/src/ apps/api/tests/
+
+  test:
+    desc: Run pytest
+    dir: apps/api
+    cmd: uv run pytest tests/ -v
+
+  migrate:
+    desc: Run Alembic migrations
+    dir: apps/api
+    cmd: uv run alembic upgrade head
+
+  migration:
+    desc: "Generate new migration: task py:migration -- 'description'"
+    dir: apps/api
+    cmd: uv run alembic revision --autogenerate -m "{{.CLI_ARGS}}"
+
+  stamp:
+    desc: Stamp existing DB as at head (production cutover only)
+    dir: apps/api
+    cmd: uv run alembic stamp head

@@ -1,0 +1,17 @@
+[
+  {"id" : "year" , "label" : "سال"},
+  {"id" : "month" , "label" : "ماه"},
+  {"id" : "all" , "label" : "کل پروژه ها"},
+  {"id" : "force" , "label" : "تعداد فوری"},
+  {"id" : "negetive-force" , "label" : "فوری منفی"},
+  {"id" : "middle-force" , "label" : "متوسط زمان منفی"},
+  {"id" : "1day" , "label" : "تعداد 1روزه"},
+  {"id" : "negative-1day" , "label" : "1روزه منفی"},
+  {"id" : "middle-1day" , "label" : "متوسط زمان یک روزه"},
+  {"id" : "regulgar-count" , "label" : "تعداد معمولی"},
+  {"id" : "negative-regular" , "label" : "معمولی منفی"},
+  {"id" : "middle-time" , "label" : "متوسط زمان معمولی"},
+  {"id" : "negative-count" , "label" : "تعداد کل منفی"},
+  {"id" : "most-time" , "label" : "بیشترین زمان منفی"},
+  {"id" : "all-time" , "label" : "جمع امتیاز"}
+]
