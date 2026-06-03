@@ -1,7 +1,0 @@
-[
-  {"id" : "code" , "label"  :"کد تراکنش"},
-  {"id" : "date" , "label"  :"تاریخ"},
-  {"id" : "details" , "label"  :"شرح"},
-  {"id" : "price" , "label"  :"مبلغ"},
-  {"id" : "income" , "label"  :"مانده"}
-]

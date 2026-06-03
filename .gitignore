@@ -26,3 +26,15 @@ data/
 
 # OS
 .DS_Store
+*.pem
+
+# IDE
+.idea/
+.vscode/
+.yarn/
+
+# Next.js build artifacts
+apps/web/.next/
+apps/web/out/
+apps/web/coverage/
+*.tsbuildinfo
